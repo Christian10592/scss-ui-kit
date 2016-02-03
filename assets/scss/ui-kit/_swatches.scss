@@ -1,0 +1,37 @@
+@import '../globals/variables';
+
+// ========================================= Swatches ================================= //
+
+.color-swatch {
+  border: $border;
+  height: 50px;
+  width: 50px;
+  float: left;
+  margin-left: $gutter;
+  margin-right: $gutter;
+  
+  .color {
+    border: 7px solid white;
+    height: 100%;
+    width: 100%;
+    float: left;
+    &.green {
+      background: $green;
+    }
+    &.red {
+      background: $red;
+    }
+    &.blue {
+      background:$blue;
+    }
+    &.teal {
+      background:$teal;
+    }
+    &.orange {
+      background:$orange;
+    }
+    &.purple {
+      background:$purple;
+    }
+  }
+}

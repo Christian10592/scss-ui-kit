@@ -1,0 +1,19 @@
+@import '../globals/variables';
+
+// ========================================= Top Bar ================================= //
+
+.top-bar {
+  align-items: center;
+  background: white;
+  height: 70px;
+  padding-left: $gutter;
+  padding-right: $gutter;
+  box-shadow: $box-shadow;
+  display: flex;
+  h1 {
+    font-weight: $font-bold;
+    color: $medium-grey;
+    font-size: 1.25em;
+  }
+  
+}

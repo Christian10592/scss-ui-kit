@@ -1,0 +1,16 @@
+@import '../globals/variables';
+
+// ========================================= Titles ================================= //
+
+h2 {
+    border-bottom: $border;
+    color: $medium-grey;
+    font-size: 1.25em;
+    font-weight: $font-light;
+    margin-bottom: $gutter;
+    padding-bottom: $gutter;
+    padding-top: $gutter;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: $gutter * 2;
+}

@@ -1,0 +1,29 @@
+@import '../globals/variables';
+
+// ========================================= Wrapper ================================= //
+
+.wrapper {
+  background: white;
+  box-shadow: $box-shadow;
+  padding: $gutter * 2;
+  margin-left: auto;
+  margin-right: auto;
+  
+  &.swatches {
+    width: 540px;
+    display: flex;
+  }
+  
+  &.top-bar {
+    margin-top:$gutter * 2;
+  }
+  
+  &.buttons {
+    width: 763px;
+  }
+  
+  &.inputs {
+    width: 460px;
+  }
+  
+}

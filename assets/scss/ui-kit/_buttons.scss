@@ -1,0 +1,72 @@
+@import '../globals/variables';
+
+//Generate Default Button Styles
+.button {
+  padding: $button-vertical-gutter $button-horizontal-gutter;
+  color: $button-font-color;
+  font-family: $button-font-family;
+  font-weight: $button-font-weight;
+  border-width: $border-width;
+  border-style: $border-style;
+  border-radius: $button-border-radius;
+  cursor: $button-cursor-type;
+  transition: $button-transition-time;
+  text-decoration: none;
+  display: inline-block;
+}
+
+//Button Color Mixin
+@mixin button-color($color) {
+  @extend .button;
+  background: $color;
+  border-color: $color;
+  
+  &:hover {
+    border-color:darken($color, $hover-color-change); 
+    background: darken($color, $hover-color-change);
+  }
+  
+}
+
+//Button Size Mixin
+@mixin button-size($size) {
+  @extend .button;
+  font-size: $size;
+}
+
+//Hollow Button Color Mixin
+@mixin ghost-button-color($color) {
+  @extend .button;
+  border-color: $color;
+  color: $color;
+  border-width: 2px;
+  background:none;
+  
+  &:hover {
+    background:$color;
+    color:white;
+  }
+  
+}
+
+//Generate Button Classes
+@each $type, $color in $button-colors {
+  @each $key, $size in $button-sizes {
+    .button-#{$type}-#{$key} {
+      @include button-color($color);
+      @include button-size($size);
+    }
+  }
+}
+
+//Generate Hollow Buttons
+@if $generate-ghost-buttons == true {
+  @each $type, $color in $button-colors {
+    @each $key, $size in $button-sizes {
+      .button-ghost-#{$type}-#{$key} {
+        @include ghost-button-color($color);
+        @include button-size($size);
+      }
+    }
+  }
+}

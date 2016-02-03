@@ -1,0 +1,115 @@
+@import '../globals/variables';
+
+// ========================================= Dropdown ================================= //
+
+//Dropdown Parent
+$dropdown-font-family: $primary-font;
+$dropdown-font-weight: $font-light;
+$dropdown-border: 1px solid #cccccc;
+$dropdown-background-color: white;
+$dropdown-font-color: $font-color;
+$dropdown-border-radius: 0.188em;
+$dropdown-line-height: 2.188em;
+$dropdown-tranistion: .15s;
+$dropdown-default-width:300px;
+$dropdown-horizontal-gutter:.625em;
+$dropdown-vertical-gutter:.313em;
+$dropdown-cursor-type: pointer;
+
+//Dropdown Shadow
+$dropdown-shadow-effect: 0 0 6px 0 #555555;
+
+//Dropdown Children
+$dropdown-background-hover: #cccccc;
+$dropdown-color-hover: white;
+$dropdown-children-color: $font-color;
+$dropdown-cursor-type: pointer;
+$dropdown-indent-text: .938em;
+$dropdown-margin-parent-children: 5px;
+
+//Declare Dropdown Sizes (Font Size)
+$dropdown-sizes: (
+) !default;
+
+//Generate Default Dropdown Styles
+.dropdown {
+  font-family: $dropdown-font-family;
+  font-weight: $dropdown-font-weight;
+  transition:$dropdown-tranistion;
+  width:$dropdown-default-width;
+  max-width: 100%;
+  & .dropdown-parent {
+    border: $dropdown-border;
+    background: $dropdown-background-color;
+    transition:$dropdown-tranistion;
+    border-radius: $dropdown-border-radius;
+    width: inherit;
+    padding: $dropdown-vertical-gutter $dropdown-horizontal-gutter;
+    cursor: $dropdown-cursor-type;
+    color: $dropdown-font-color;
+    max-width: inherit;
+    h5 {
+      color: inherit;
+      font-family: inherit;
+      font-weight: normal;
+      font-size: inherit;
+      span {
+        color: inherit;
+        font-family: inherit;
+        font-weight: normal;
+        font-size: inherit;
+      }
+      img {
+        float: right;
+        margin-top: 8px;
+      }
+    }
+  }
+  & .dropdown-children {
+    list-style: none;
+    color: $dropdown-children-color;
+    cursor: $dropdown-cursor-type;
+    background:$dropdown-background-color;
+    border:$dropdown-border;
+    border-radius: $dropdown-border-radius;
+    margin-top:$dropdown-margin-parent-children;
+    width: inherit;
+    display: none;
+    position: absolute;
+    z-index: 5000;
+    max-width: inherit;
+    li {
+      line-height: $dropdown-line-height;
+      transition:$dropdown-tranistion;
+      text-indent: $dropdown-indent-text;
+      &:hover {
+        background:$dropdown-background-hover;
+        color:$dropdown-color-hover;
+      }
+    }
+  }
+}
+
+.dropdown-shadow {
+  box-shadow: $dropdown-shadow-effect;
+}
+
+//Dropdown Size Mixin
+@mixin dropdown-size($size) {
+  @extend .dropdown;
+  & .dropdown-parent {
+    font-size: $size;
+  }
+  & .dropdown-children {
+    li {
+      font-size: $size;
+    }
+  }
+}
+
+//Generate Dropdown Classes
+@each $key, $size in $dropdown-sizes {
+  .dropdown-#{$key} {
+    @include dropdown-size($size);
+  }
+}

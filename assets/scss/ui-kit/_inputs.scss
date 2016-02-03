@@ -1,0 +1,53 @@
+@import '../globals/variables';
+
+// ========================================= Input ================================= //
+
+//Generate Default Input Styles
+input,textarea {
+  font-family: $input-font-family;
+  border: $input-border;
+  background: $input-background-color;
+  border-radius: $input-border-radius;
+  color: $input-font-color;
+  padding:$input-vertical-gutter $input-horizontal-gutter;
+  width:$input-width;
+  max-width: 100%;
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+  font-weight: $input-font-weight;
+  transition: $input-transition;
+  cursor: pointer;
+  
+  &:hover, &:active, &:focus {
+    box-shadow: $input-shadow-effect;
+  }
+  
+}
+
+input {
+  height: $input-height;
+}
+
+textarea {
+  height: $textarea-height;
+  resize: $textarea-resize;
+}
+
+//Placeholder Text Color
+::-webkit-input-placeholder {
+   color: $input-font-color !important;
+}
+
+:-moz-placeholder {
+   color: $input-font-color !important;
+   opacity: 1;
+}
+
+::-moz-placeholder {
+   color: $input-font-color !important;  
+   opacity: 1;
+}
+
+:-ms-input-placeholder {  
+   color: $input-font-color !important;  
+}
